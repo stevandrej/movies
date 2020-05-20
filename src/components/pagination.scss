@@ -1,0 +1,27 @@
+.pagination{
+    align-self: center;
+
+    &-li{
+        display: inline-block;
+        margin: .2em .5rem;
+    }
+
+    &-btn{
+        display: block;
+        padding: .5rem 1rem;
+        text-align: center;
+        outline: none;
+
+        background: none;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        cursor: pointer;
+
+        transition: all .2s;
+    }
+
+    &-btn:hover{
+        background-color: #ff2c55;
+        color: #fff;
+    }
+}
