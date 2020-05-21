@@ -8,7 +8,7 @@ const MainFrame = (props) => {
 
 	useEffect( () => {
         async function fetchMovieInfo() {
-            await fetch(`http://www.omdbapi.com/?i=${props.id}&plot=full${process.env.REACT_APP_API_KEY}`)
+            await fetch(`https://www.omdbapi.com/?i=${props.id}&plot=full${process.env.REACT_APP_API_KEY}`)
                 .then(response => response.json())
                 .then(result => setMovieInfo(result));
         }

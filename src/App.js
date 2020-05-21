@@ -21,7 +21,7 @@ const App = () => {
 			return;
 		}
 		async function fetchMovies() {
-			await fetch(`http://www.omdbapi.com/?s=${search}&plot=full${process.env.REACT_APP_API_KEY}`)
+			await fetch(`https://www.omdbapi.com/?s=${search}&plot=full${process.env.REACT_APP_API_KEY}`)
 				.then(response => response.json())
 				.then(result => setMovies(result));
 		}

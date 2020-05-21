@@ -9,7 +9,7 @@ const LatestMovies = (props) => {
             <ul className="latest_movies__list">
                 <li className="latest_movies__item">
                     <div className="latest_movies__item-left">
-                        <img className="latest_movies__item__img" src="/img/bad-boys-forlife.jpg" alt="movie cover" />
+                        <img className="latest_movies__item__img" src="./img/bad-boys-forlife.jpg" alt="movie cover" />
                     </div>
                     <div className="latest_movies__item-right">
                         <h4 className="latest_movies__item__title" >Bad boys for life</h4>
@@ -20,7 +20,7 @@ const LatestMovies = (props) => {
 
                 <li className="latest_movies__item">
                     <div className="latest_movies__item-left">
-                        <img className="latest_movies__item__img" src="/img/harley-queen.jpg" alt="movie cover" />
+                        <img className="latest_movies__item__img" src="./img/harley-queen.jpg" alt="movie cover" />
                     </div>
                     <div className="latest_movies__item-right">
                         <h4 className="latest_movies__item__title" >Harley Quinn: Birds of Prey</h4>
@@ -31,7 +31,7 @@ const LatestMovies = (props) => {
 
                 <li className="latest_movies__item">
                     <div className="latest_movies__item-left">
-                        <img className="latest_movies__item__img" src="/img/sonic.jpg" alt="movie cover" />
+                        <img className="latest_movies__item__img" src="./img/sonic.jpg" alt="movie cover" />
                     </div>
                     <div className="latest_movies__item-right">
                         <h4 className="latest_movies__item__title" >Sonic the Hedgehog</h4>
@@ -42,7 +42,7 @@ const LatestMovies = (props) => {
 
                 <li className="latest_movies__item">
                     <div className="latest_movies__item-left">
-                        <img className="latest_movies__item__img" src="/img/bloodshot.jpg" alt="movie cover" />
+                        <img className="latest_movies__item__img" src="./img/bloodshot.jpg" alt="movie cover" />
                     </div>
                     <div className="latest_movies__item-right">
                         <h4 className="latest_movies__item__title" >Bloodshot</h4>
@@ -53,7 +53,7 @@ const LatestMovies = (props) => {
 
                 <li className="latest_movies__item">
                     <div className="latest_movies__item-left">
-                        <img className="latest_movies__item__img" src="../img/onward.jpg" alt="movie cover" />
+                        <img className="latest_movies__item__img" src="./img/onward.jpg" alt="movie cover" />
                     </div>
                     <div className="latest_movies__item-right">
                         <h4 className="latest_movies__item__title" >Onward</h4>
