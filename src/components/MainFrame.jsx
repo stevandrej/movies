@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import MovieInfo from './MovieInfo';
 import MoviesList from './MoviesList';
 
 const MainFrame = (props) => {
-
-    const [movieInfo, setMovieInfo] = useState('');
-
-	useEffect( () => {
-        async function fetchMovieInfo() {
-            await fetch(`https://www.omdbapi.com/?i=${props.id}&plot=full${process.env.REACT_APP_API_KEY}`)
-                .then(response => response.json())
-                .then(result => setMovieInfo(result));
-        }
-
-        if(props.view === 'single')
-            fetchMovieInfo();
-                
-    }, [props.view, props.id]);
-    
 
     //There is a movie/s information
     if(props.data.Response === "True")
@@ -29,7 +14,7 @@ const MainFrame = (props) => {
 
             if(props.view === 'single')
             {
-                return <MovieInfo movie={movieInfo} setView={props.setView} />;
+                return <MovieInfo movie={props.movieInfo} setView={props.setView} />;
             }
     }      
     //No movie was found

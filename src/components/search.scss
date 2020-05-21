@@ -27,9 +27,14 @@ $bp-smallest: 30em;    // 480px
         text-decoration: none;
 
         
-    @media only screen and (max-width: $bp-small){
-        width: 30rem;
-    }
+        @media only screen and (max-width: $bp-small){
+            width: 30rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest){
+            width: 15rem;
+        }
+
     }
 
     &__field::placeholder{

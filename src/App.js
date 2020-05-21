@@ -33,11 +33,28 @@ const App = () => {
 	}, [search]);
 
 
+	const [movieInfo, setMovieInfo] = useState('');
+
+	useEffect( () => {
+        async function fetchMovieInfo() {
+            await fetch(`https://www.omdbapi.com/?i=${id}&plot=full${process.env.REACT_APP_API_KEY}`)
+                .then(response => response.json())
+                .then(result => setMovieInfo(result));
+        }
+
+        if(view === 'single')
+            {
+                fetchMovieInfo();
+            }
+                
+    }, [view, id]);
+
+
 	return (
 		<>
 			<div className="bgImg" style={
 				{
-					backgroundImage: (movies !== '' && movies.hasOwnProperty('Poster') && movies.Poster !== '' && movies.Poster !== 'N/A'  && movies.Response !== 'False') ? `url(${movies.Poster})` : `url('img/cinema.jpg')`
+					backgroundImage: (view !== 'blog' && movieInfo !== '' && movieInfo.hasOwnProperty('Poster') && movieInfo.Poster !== '' && movieInfo.Poster !== 'N/A'  && movieInfo.Response !== 'False') ? `url(${movieInfo.Poster})` : `url('img/cinema.jpg')`
 				}
 			}></div>
 			<div className="container">
@@ -55,7 +72,7 @@ const App = () => {
 					</div>
 					<div className="content">
 						<main className="main-frame">
-							<MainFrame data={movies} currentPage={currentPage} setCurrentPage={setCurrentPage} setView={setView} view={view} setId={setId} id={id}/>
+							<MainFrame data={movies} movieInfo={movieInfo} currentPage={currentPage} setCurrentPage={setCurrentPage} setView={setView} view={view} setId={setId} id={id}/>
 						</main>
 
 						<div className="latest_movies">

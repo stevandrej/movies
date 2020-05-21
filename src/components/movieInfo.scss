@@ -1,3 +1,10 @@
+$bp-largest: 90em;     // 1440px
+$bp-large: 75em;       // 1200px
+$bp-medium: 64em;      // 1024px
+$bp-small: 48em;       // 768px
+$bp-smaller: 40em;    // 640px
+$bp-smallest: 30em;    // 480px
+
 .movieView{
     display: flex;
     flex-direction: column;
@@ -49,6 +56,16 @@
 .movie{
     display: flex;
 
+    @media only screen and (max-width: $bp-medium){
+        flex-direction: column;
+    }
+
+
+    @media only screen and (max-width: $bp-smaller){
+        flex-direction: column;
+        flex: 0 0 auto;
+    }
+
     &__img {
         display: flex;
         align-self: flex-start;
@@ -56,6 +73,11 @@
         border-radius: 10px;
         overflow: hidden;
         box-shadow: .4rem .4rem 1.5rem rgba($color: #000000, $alpha: .4);
+
+        @media only screen and (max-width: $bp-medium){
+            align-self: center;
+            margin-bottom: 2.5rem;
+        }
     }
 
     &__img > img {
@@ -69,6 +91,10 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 0 2rem;
+
+    @media only screen and (max-width: $bp-smaller){
+        flex: 0 0 auto;
+    }
 
     &__title{
         display: flex;
