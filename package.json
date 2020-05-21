@@ -2,6 +2,7 @@
   "name": "movies",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://stevandrej.github.io/movies",
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/lab": "^4.0.0-alpha.53",
@@ -17,6 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,7 +35,9 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "homepage": "https://stevandrej.github.io/movie_search"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
