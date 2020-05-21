@@ -5,14 +5,14 @@ import Filters from './components/Filters';
 import Search from './components/Search';
 import LatestMovies from './components/LatestMovies';
 import MainFrame from './components/MainFrame';
-/* import {useHttp} from './components/http'; */
 
 const App = () => {
+
 	const [movies, setMovies] = useState('');
 	const [search, setSearch] = useState('');
 	const [currentPage, setCurrentPage] = useState(1);
-
-	//const data = useHttp(`http://www.omdbapi.com/?s=${search}&plot=full&apikey=22b41965`,[search]);
+	const [view, setView] = useState('blog');
+	const [id, setId] = useState('');
 
 	const isFirstRun = useRef(true);
 	useEffect(() => {
@@ -20,13 +20,15 @@ const App = () => {
 			isFirstRun.current = false;
 			return;
 		}
-		async function fetchMovie() {
-			await fetch(`http://www.omdbapi.com/?s=${search}&plot=full&apikey=22b41965`)
+		async function fetchMovies() {
+			await fetch(`http://www.omdbapi.com/?s=${search}&plot=full${process.env.REACT_APP_API_KEY}`)
 				.then(response => response.json())
 				.then(result => setMovies(result));
 		}
-		search !== '' ? fetchMovie() : setMovies('');
+		search !== '' ? fetchMovies() : setMovies('');
 		setCurrentPage(1);
+		setView('blog');
+		setId('');
 
 	}, [search]);
 
@@ -53,8 +55,7 @@ const App = () => {
 					</div>
 					<div className="content">
 						<main className="main-frame">
-							<MainFrame data={movies} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
-{/* 							<MainFrame data={data} />  */}
+							<MainFrame data={movies} currentPage={currentPage} setCurrentPage={setCurrentPage} setView={setView} view={view} setId={setId} id={id}/>
 						</main>
 
 						<div className="latest_movies">

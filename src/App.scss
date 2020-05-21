@@ -1,3 +1,10 @@
+$bp-largest: 90em;     // 1440px
+$bp-large: 75em;       // 1200px
+$bp-medium: 64em;      // 1024px
+$bp-small: 48em;       // 768px
+$bp-smaller: 40em;    // 640px
+$bp-smallest: 30em;    // 480px
+
 .container{
     max-width: 140rem;
     margin: 5rem auto;
@@ -7,6 +14,26 @@
     border-radius: 30px;
     overflow: hidden;
     box-shadow: 1rem 1rem 2.5rem .5rem rgba($color:#000000, $alpha: .6);
+    
+    @media only screen and (max-width: $bp-largest){
+    max-width: 120rem;
+    }
+    
+    @media only screen and (max-width: $bp-large){
+        max-width: 115rem;
+    }
+    
+    @media only screen and (max-width: $bp-medium){
+        max-width: 95rem;
+    }
+
+    @media only screen and (max-width: $bp-small){
+        max-width: 70rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller){
+        max-width: 60rem;
+    }
 }
 
 .side-left{
@@ -46,6 +73,10 @@
 
 .content{
     display: flex;
+
+    @media only screen and (max-width: $bp-small){
+        flex-direction: column;
+    }
 }
 
 .main-frame{
@@ -53,6 +84,10 @@
     flex: 1 1 auto;
     align-items: flex-start;
     padding: 4rem 2rem 2rem 2rem;
+
+    @media only screen and (max-width: $bp-medium){
+        flex: 1 1 80%;
+    }
 }
 
 .latest_movies{

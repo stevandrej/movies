@@ -25,6 +25,9 @@ const MovieInfo = (props) => {
 
         //RENDER UI
         return (
+            <div className="movieView">
+            <button className="backBtn" onClick={ () => { props.setView('blog') } }>&lt; Back</button>
+
             <div className="movie" data-itemid={props.movie.imdbID}>
                 <div className="movie__img">
                     <img src={Poster} alt={props.movie.Title} />
@@ -67,6 +70,7 @@ const MovieInfo = (props) => {
                     </div>
                 </div>
             </div>
+            </div>            
         );
     }
     else {
