@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./search.scss";
 
 const Search = (props) => {
     const [search, setSearch] = useState('');

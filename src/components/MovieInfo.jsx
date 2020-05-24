@@ -1,5 +1,4 @@
 import React from 'react';
-import './movieInfo.scss';
 
 const MovieInfo = (props) => {
 

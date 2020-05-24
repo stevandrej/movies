@@ -1,5 +1,4 @@
 import React from 'react';
-import './latestMovies.scss';
 
 const LatestMovies = (props) => {
 

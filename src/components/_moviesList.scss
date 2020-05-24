@@ -13,9 +13,11 @@ $bp-smallest: 30em;    // 480px
     &__container{
         display: grid;
         grid-template-columns: 1fr 1fr;
+
         @media only screen and (max-width: $bp-smaller){
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));    
         }
+        
         grid-gap: 2rem;
         align-items: end;
         justify-items: center;

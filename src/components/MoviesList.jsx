@@ -1,6 +1,5 @@
 import React from 'react';
 import Pagination from '@material-ui/lab/Pagination';
-import './moviesList.scss';
 
 
 const MoviesList = (props) => {

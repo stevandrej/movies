@@ -1,0 +1,110 @@
+$bp-largest: 90em;     // 1440px
+$bp-large: 75em;       // 1200px
+$bp-medium: 64em;      // 1024px
+$bp-small: 48em;       // 768px
+$bp-smaller: 40em;    // 640px
+$bp-smallest: 30em;    // 480px
+
+.container{
+    max-width: 140rem;
+    margin: 5rem auto;
+    min-height: 50rem;
+    display: flex;
+    flex: 1;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 1rem 1rem 2.5rem .5rem rgba($color:#000000, $alpha: .6);
+    
+    @media only screen and (max-width: $bp-largest){
+    max-width: 120rem;
+    }
+    
+    @media only screen and (max-width: $bp-large){
+        max-width: 115rem;
+    }
+    
+    @media only screen and (max-width: $bp-medium){
+        max-width: 95rem;
+    }
+
+    @media only screen and (max-width: $bp-small){
+        max-width: 70rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller){
+        max-width: 60rem;
+    }
+
+    @media only screen and (max-width: $bp-smaller){
+        max-width: 50rem;
+        flex: 0 0 auto;
+        overflow: scroll;
+    }
+
+    @media only screen and (max-width: $bp-smallest){
+        max-width: 45rem;
+        overflow: scroll;
+    }
+}
+
+.side-left{
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 15%;
+    background-color: rgba($color:rgb(29, 29, 29), $alpha: .5);
+    backdrop-filter: blur(35px);
+    color: #fff;
+}
+
+.logo-container{
+    padding: 1rem 2.4rem;
+    margin-bottom: 3rem;
+}
+
+.logo{
+    width: 100%;
+    display: block;
+}
+
+.side-right{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.search{
+    display: flex;
+    height: 7.2rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2rem;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.content{
+    display: flex;
+
+    @media only screen and (max-width: $bp-small){
+        flex-direction: column;
+    }
+}
+
+.main-frame{
+    display: flex;
+    flex: 1 1 auto;
+    align-items: flex-start;
+    padding: 4rem 2rem 2rem 2rem;
+
+    @media only screen and (max-width: $bp-medium){
+        flex: 1 1 80%;
+    }
+}
+
+.latest_movies{
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    border-left: 1px solid #d4d4d4;
+    padding: 2rem;
+}

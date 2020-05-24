@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import "./App.scss";
-import "./typography.scss";
+import "./style.css";
 import Filters from './components/Filters';
 import Search from './components/Search';
 import LatestMovies from './components/LatestMovies';
@@ -15,17 +14,28 @@ const App = () => {
 	const [id, setId] = useState('');
 
 	const isFirstRun = useRef(true);
+
 	useEffect(() => {
 		if (isFirstRun.current) {
 			isFirstRun.current = false;
 			return;
 		}
+
 		async function fetchMovies() {
 			await fetch(`https://www.omdbapi.com/?s=${search}&plot=full${process.env.REACT_APP_API_KEY}`)
-				.then(response => response.json())
+				.then(response => response.json() )
 				.then(result => setMovies(result));
 		}
-		search !== '' ? fetchMovies() : setMovies('');
+
+		if(search !== '')
+		{
+			fetchMovies();
+		}
+		else{
+			setMovies('');
+		}
+		
+		setMovies('');
 		setCurrentPage(1);
 		setView('blog');
 		setId('');
@@ -38,14 +48,16 @@ const App = () => {
 	useEffect( () => {
         async function fetchMovieInfo() {
             await fetch(`https://www.omdbapi.com/?i=${id}&plot=full${process.env.REACT_APP_API_KEY}`)
-                .then(response => response.json())
-                .then(result => setMovieInfo(result));
-        }
+                .then(response => response.json() )
+				.then(result => setMovieInfo(result));
+		}
 
         if(view === 'single')
             {
-                fetchMovieInfo();
-            }
+				fetchMovieInfo();
+			}
+			
+		setMovieInfo('');
                 
     }, [view, id]);
 
@@ -72,7 +84,7 @@ const App = () => {
 					</div>
 					<div className="content">
 						<main className="main-frame">
-							<MainFrame data={movies} movieInfo={movieInfo} currentPage={currentPage} setCurrentPage={setCurrentPage} setView={setView} view={view} setId={setId} id={id}/>
+							<MainFrame data={movies} movieInfo={movieInfo} currentPage={currentPage} setCurrentPage={setCurrentPage} setView={setView} view={view} setId={setId} id={id} />
 						</main>
 
 						<div className="latest_movies">

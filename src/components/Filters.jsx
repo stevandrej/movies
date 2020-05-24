@@ -1,5 +1,4 @@
 import React from 'react';
-import "./filters.scss";
 
 const Filters = (props) => {
     
