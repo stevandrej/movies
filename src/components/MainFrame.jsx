@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieInfo from './MovieInfo';
 import MoviesList from './MoviesList';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const MainFrame = (props) => {
 
@@ -14,7 +15,9 @@ const MainFrame = (props) => {
 
         if(props.view === 'single')
         {
-            return <MovieInfo movie={props.movieInfo} setView={props.setView} />;
+            return (
+                   <>{props.isLoadingSingleView ? <CircularProgress color="secondary" /> : <MovieInfo movie={props.movieInfo} setView={props.setView} />}</>
+                );
         }
     }
     //No movie was found

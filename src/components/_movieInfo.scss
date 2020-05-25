@@ -107,6 +107,17 @@ $bp-smallest: 30em;    // 480px
         justify-content: space-between;
         align-items: flex-end;
 
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+
+            & > *:not(:last-child){
+                margin-bottom: 2rem;
+                margin-right:0;
+            }
+        }
+
         & > *:not(:last-child){
             margin-right:.5rem;
         }

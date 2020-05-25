@@ -249,6 +249,14 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: flex-end; }
+    @media only screen and (max-width: 48em) {
+      .movie__content__info {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start; }
+        .movie__content__info > *:not(:last-child) {
+          margin-bottom: 2rem;
+          margin-right: 0; } }
     .movie__content__info > *:not(:last-child) {
       margin-right: .5rem; }
     .movie__content__info--rating {

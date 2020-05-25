@@ -4,6 +4,8 @@ import Filters from './components/Filters';
 import Search from './components/Search';
 import LatestMovies from './components/LatestMovies';
 import MainFrame from './components/MainFrame';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const App = () => {
 
@@ -13,6 +15,9 @@ const App = () => {
 	const [view, setView] = useState('blog');
 	const [id, setId] = useState('');
 
+	const [isLoadingBlogView, setLoadingBlogView] = useState(false);
+	const [isLoadingSingleView, setLoadingSingleView] = useState(false);
+
 	const isFirstRun = useRef(true);
 
 	useEffect(() => {
@@ -20,11 +25,14 @@ const App = () => {
 			isFirstRun.current = false;
 			return;
 		}
-
+		setLoadingBlogView(true);
 		async function fetchMovies() {
 			await fetch(`https://www.omdbapi.com/?s=${search}&plot=full${process.env.REACT_APP_API_KEY}`)
 				.then(response => response.json() )
-				.then(result => setMovies(result));
+				.then(result => {
+					setLoadingBlogView(false)
+					setMovies(result)
+				});
 		}
 
 		if(search !== '')
@@ -33,6 +41,7 @@ const App = () => {
 		}
 		else{
 			setMovies('');
+			setLoadingBlogView(false);
 		}
 		
 		setMovies('');
@@ -46,10 +55,15 @@ const App = () => {
 	const [movieInfo, setMovieInfo] = useState('');
 
 	useEffect( () => {
+
+		setLoadingSingleView(true);
         async function fetchMovieInfo() {
             await fetch(`https://www.omdbapi.com/?i=${id}&plot=full${process.env.REACT_APP_API_KEY}`)
                 .then(response => response.json() )
-				.then(result => setMovieInfo(result));
+				.then(result => {
+					setLoadingSingleView(false)
+					setMovieInfo(result)
+				});
 		}
 
         if(view === 'single')
@@ -60,6 +74,7 @@ const App = () => {
 		setMovieInfo('');
                 
     }, [view, id]);
+
 
 
 	return (
@@ -84,7 +99,7 @@ const App = () => {
 					</div>
 					<div className="content">
 						<main className="main-frame">
-							<MainFrame data={movies} movieInfo={movieInfo} currentPage={currentPage} setCurrentPage={setCurrentPage} setView={setView} view={view} setId={setId} id={id} />
+							{isLoadingBlogView ? <CircularProgress color="secondary" /> : <MainFrame isLoadingSingleView={isLoadingSingleView} data={movies} movieInfo={movieInfo} currentPage={currentPage} setCurrentPage={setCurrentPage} setView={setView} view={view} setId={setId} id={id} />}
 						</main>
 
 						<div className="latest_movies">
