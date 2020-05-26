@@ -11,7 +11,9 @@ const Search = (props) => {
     return(
         <>
         <form className="searchbar" onSubmit={handleSubmit} spellCheck='false'>
-            <input onChange={(e) => {setSearch(e.target.value)}} value={search} className="searchbar__field" type="text" placeholder="Search for movie..."/>
+            <div className="searchbar__field-style">
+                <input onChange={(e) => {setSearch(e.target.value)}} value={search} className="searchbar__field" type="text" placeholder="Search for movie..."/>
+            </div>
         </form>
         </>
     );

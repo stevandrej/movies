@@ -325,6 +325,12 @@ hr {
     background-color: #ff2c55;
     color: #fff; }
 
+@keyframes gradient {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 100% 0; } }
+
 .searchbar {
   background-color: #fff;
   border-radius: 10rem;
@@ -332,6 +338,7 @@ hr {
   color: #757575;
   font-size: 1.5rem; }
   .searchbar__field {
+    position: relative;
     background: none;
     border: none;
     color: inherit;
@@ -353,6 +360,30 @@ hr {
     text-indent: 2rem;
     text-align: center;
     color: #bbbbbb; }
+  .searchbar__field-style {
+    position: relative; }
+  .searchbar__field-style::after {
+    content: "";
+    display: block;
+    position: absolute;
+    opacity: 0;
+    left: 0px;
+    right: 0px;
+    bottom: -1px;
+    z-index: 999;
+    height: 2px;
+    width: 0%;
+    margin: auto;
+    transition: opacity .3s, width .3s;
+    border-bottom-left-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+    background-position: 0% 0%;
+    background: linear-gradient(to right, #ff2c55, #ffda61, #426bb3, #ff2c55, #ffda61);
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite; }
+  .searchbar__field-style:focus-within::after {
+    opacity: 1;
+    width: 93%; }
 
 *,
 *::before,

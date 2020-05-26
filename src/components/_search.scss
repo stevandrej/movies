@@ -5,6 +5,11 @@ $bp-small: 48em;       // 768px
 $bp-smaller: 40em;    // 640px
 $bp-smallest: 30em;    // 480px
 
+@keyframes gradient { 
+    0%{background-position:0 0}
+    100%{background-position:100% 0}
+  }
+
 .searchbar{
 
     background-color: #fff;
@@ -14,6 +19,7 @@ $bp-smallest: 30em;    // 480px
     font-size: 1.5rem;
 
     &__field{
+        position: relative;
         background: none;
         border: none;
         color: inherit;
@@ -41,5 +47,35 @@ $bp-smallest: 30em;    // 480px
         text-indent: 2rem;
         text-align: center;
         color: #bbbbbb;
+    }
+
+    &__field-style{
+        position: relative;
+    }
+
+    &__field-style::after{
+        content: "";
+        display: block;
+        position: absolute;
+        opacity: 0;
+        left: 0px;
+        right: 0px;
+        bottom: -1px;
+        z-index: 999;
+        height: 2px;
+        width: 0%;
+        margin: auto;
+        transition: opacity .3s, width .3s;
+        border-bottom-left-radius: 10rem;
+        border-bottom-right-radius: 10rem;
+        background-position: 0% 0%;
+        background: linear-gradient(to right, #ff2c55, #ffda61, #426bb3, #ff2c55, #ffda61);
+        background-size: 500% auto;
+        animation: gradient 3s linear infinite;
+    }
+
+    &__field-style:focus-within::after{
+        opacity: 1;
+        width: 93%;
     }
 }
