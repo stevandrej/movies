@@ -94,6 +94,7 @@ $bp-smallest: 30em;    // 480px
     display: flex;
     flex: 1 1 auto;
     align-items: flex-start;
+    justify-content: center;
     padding: 4rem 2rem 2rem 2rem;
 
     @media only screen and (max-width: $bp-medium){
