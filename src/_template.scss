@@ -38,12 +38,74 @@ $bp-smallest: 30em;    // 480px
     @media only screen and (max-width: $bp-smaller){
         max-width: 50rem;
         flex: 0 0 auto;
-        overflow: scroll;
     }
 
     @media only screen and (max-width: $bp-smallest){
         max-width: 45rem;
-        overflow: scroll;
+    }
+}
+
+.mobile-menu{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: -200px;
+    z-index: 10000;
+    width: 250px;
+    height: 100%;
+    color: white;
+    transition: left .3s;
+    
+    @media only screen and (max-width: $bp-small){
+        display: flex;
+    }
+    
+    &--active{
+        left:0;
+    }
+}
+
+
+.mobile-menu-container{
+    width: 200px;
+    background-color: rgba($color:rgb(29, 29, 29), $alpha: .5);
+    backdrop-filter: blur(35px);
+}
+
+.toggle-menu{
+    width: 50px;
+    height: 50px;
+    background: white;
+    position: relative;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+    &__lines{
+        position: absolute;
+        width: 30px;
+        height: 1px;
+        background: black;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &::after{
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 1px;
+            background: black;
+            transform: translateY(-6px);
+        }
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 1px;
+            background: black;
+            transform: translateY(6px);
+        }
     }
 }
 
@@ -54,6 +116,10 @@ $bp-smallest: 30em;    // 480px
     background-color: rgba($color:rgb(29, 29, 29), $alpha: .5);
     backdrop-filter: blur(35px);
     color: #fff;
+
+    @media only screen and (max-width: $bp-small){
+        display: none;
+    }
 }
 
 .logo-container{

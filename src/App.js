@@ -73,17 +73,42 @@ const App = () => {
 			
 		setMovieInfo('');
                 
-    }, [view, id]);
+	}, [view, id]);
 
+
+	let toggleMM = false;
+	const menuViewMobile = () => {
+			
+		toggleMM = !toggleMM;
+
+		if (toggleMM)
+		document.querySelector('.mobile-menu').className='mobile-menu mobile-menu--active';
+		else
+		document.querySelector('.mobile-menu').className='mobile-menu';
+	}
 
 
 	return (
-		<>
+		<React.Fragment>
 			<div className="bgImg" style={
 				{
 					backgroundImage: (view !== 'blog' && movieInfo !== '' && movieInfo.hasOwnProperty('Poster') && movieInfo.Poster !== '' && movieInfo.Poster !== 'N/A'  && movieInfo.Response !== 'False') ? `url(${movieInfo.Poster})` : `url('img/cinema.jpg')`
 				}
 			}></div>
+
+			{/* Mobile MENU */}
+			<div className="mobile-menu">
+				<div className="mobile-menu-container">
+					<div className="logo-container">
+							<img src='./img/logo-movie.png' alt="logo" className="logo" />
+					</div>
+					<Filters />
+				</div>
+				<div className="toggle-menu" onClick={menuViewMobile}>
+					<div className="toggle-menu__lines"></div>
+				</div>
+			</div>
+
 			<div className="container">
 
 				<div className="side-left">
@@ -109,7 +134,7 @@ const App = () => {
 				</div>
 
 			</div>
-		</>
+		</React.Fragment>
 	);
 }
 
