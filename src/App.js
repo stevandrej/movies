@@ -76,6 +76,7 @@ const App = () => {
 	}, [view, id]);
 
 
+	//Mobile menu button
 	let toggleMM = false;
 	const menuViewMobile = () => {
 			
