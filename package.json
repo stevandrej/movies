@@ -9,7 +9,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "concat": "^1.0.3",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "npm-run-all": "^4.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
